@@ -30,9 +30,9 @@ require "page.php/header.php";
     <form action="/validePrixGlace.php" method = "GET" >
         <h5>Choisisser un ou plusieurs parfums</h5>
         <?php foreach($parfums as $parfum => $prix):?>
-            <div class="checkbox">
-                <label> 
-                    <?= listeChoix('parfums', $parfum, $prix)?>
+            <div class="checkbox"> 
+                <?= listeChoix('parfums', $parfum)?>
+                <label for="parfums">
                     <?= $parfum?> - <?= $prix?> €
                 </label>
             </div>
@@ -40,8 +40,8 @@ require "page.php/header.php";
         <h5>Choisisser un contenant</h5>
         <?php foreach($contenants as $contenant => $prix):?>
             <div class="checkbox">
-                <label>
-                    <?= listeChoix('contenants', $contenant, $prix)?>
+                <?= listeChoix('contenants', $contenant)?>
+                <label for="contenants">
                     <?= $contenant?> - <?= $prix?> €
                 </label>
             </div>
@@ -49,8 +49,8 @@ require "page.php/header.php";
         <h5>Choisisser un ou plusieurs suppléments</h5>
         <?php foreach($supplements as $supplément => $prix):?>
             <div class="checkbox">
-                <label>
-                    <?= listeChoix('supplements', $supplément, $prix)?>
+                <?= listeChoix('supplements', $supplément)?>
+                <label for="supplements">
                     <?= $supplément?> - <?= $prix?> €
                 </label>
             </div>
