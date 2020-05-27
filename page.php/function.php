@@ -32,7 +32,7 @@ function navlink ($classLink = " "){
 }
 
  
-function listeChoix($name, $value, $prix){
+function listeChoix($name, $value){
   $attribute = '';
   if(isset($_GET[$name]) && in_array($value, $_GET[$name])){
       $attribute .= 'checked';
