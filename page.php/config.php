@@ -1,5 +1,5 @@
 <?php
-define('CRENEAUX', [
+define('HORAIRES', [
         "Lundi" => [["9h00", "12h00"], ["13h00", "17h00"]],
         "Mardi" => [["9h00", "12h00"], ["13h00", "16h00"]],
         "Mercredi" =>[["9h00", "12h00"]],
@@ -21,7 +21,7 @@ define('JOURS', [
     ]
 );
 
-define('HORAIRES', [
+define('CRENEAUX', [
         [
             ["9h00", "12h00"], ["13h00", "16h00"]
         ],
