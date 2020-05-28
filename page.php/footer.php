@@ -1,8 +1,9 @@
 
+
 <?php 
 require_once 'page.php/config.php';
 $heure = (int)date('H');
-$creneauxNow = HORAIRES[date('N') - 1];
+$creneauxNow = CRENEAUX[date('N') - 1];
 $ouvert = in_creneaux($heure, $creneauxNow);
 $colorJour = $ouvert ? '#3CD576' : 'red';
 ?>
@@ -12,10 +13,10 @@ $colorJour = $ouvert ? '#3CD576' : 'red';
         <div class = "col-md-4" style="text-align: center;">
             <h5 style="margin-bottom: 20px;">Prendre un rendez-vous</h5>
                 <label for="selectJour">Jour du rendez-vous:</label>
-                <select name="selectJour" id="selectJour">
-                    <option value=""> Jour </option>
+                <select name="selectJour" id="selectJour" onchange="selectedDayPHP(document.getElementById('selectJour'))">
+                    <option value="Jour"> Jour </option>
                     <?php foreach(JOURS as $k => $jour):?>
-                        <?php if(creneaux_html(HORAIRES[$k]) != 'fermé'):?>
+                        <?php if(creneaux_html(CRENEAUX[$k]) != 'fermé'):?>
                             <option value="<?= $jour?>" index="<?= $k?>"> <?= '<strong>' . $jour . '</strong>'?> </option>
                         <?php endif?>
                     <?php endforeach?>
@@ -26,8 +27,8 @@ $colorJour = $ouvert ? '#3CD576' : 'red';
                     <select name="selectCreneau" id="creneauSelect">
                         <option value=""> Creneau </option>
                         <?php foreach(JOURS as $k => $jour):?>
-                            <?php if(creneaux_html(HORAIRES[$k]) != 'fermé'):?>
-                                <option value="<?= 'creneaux' . $jour?>"> <?= creneaux_html(HORAIRES[$k])?> </option>
+                            <?php if(creneaux_html(CRENEAUX[$k]) != 'fermé'):?>
+                                <option value="<?= 'creneaux' . $jour?>"> <?= creneaux_html(CRENEAUX[$k])?> </option>
                             <?php endif?>
                         <?php endforeach?>
                     </select>
@@ -49,7 +50,7 @@ $colorJour = $ouvert ? '#3CD576' : 'red';
             <ul style="list-style-type: circle;">
                 <?php foreach(JOURS as $k => $jour):?>
                     <li <?php if((int)date('N') === $k + 1){ echo'style="color:' . $colorJour . ';"' ;}?>>
-                        <?= $jour . ' : ' . creneaux_html(HORAIRES[$k]);?>
+                        <?= $jour . ' : ' . creneaux_html(CRENEAUX[$k]);?>
                     </li>
                 <?php endforeach?>
             </ul>
@@ -61,6 +62,18 @@ $colorJour = $ouvert ? '#3CD576' : 'red';
                     <li><?= navlink()?></li>
                 </ul>
             </div>
+        </div>
+    </div>
+    <div style=" width: 600px; height: 300px; margin: 30px auto; text-align: center;">
+        <label for="selectJourJS">Jour du rendez-vous:</label>
+        <select  name="selectJourJS" id="selectJourJS" onchange="creneauxSelector(document.getElementById('selectJourJS'))">
+            <option value="Jour"> Jour </option>
+        </select>
+        <div class="choiceCreneauJS" style="visibility: hidden;">
+            <label for="selectCreneauJS">Creneau du rendez-vous:</label>
+            <select  name="selectCreneauJS" id="selectCreneauJS" onchange="valideCreneaux(document.getElementById('selectCreneauJS'))">
+                <option value="Creneau"> Creneau </option>
+            </select>
         </div>
     </div>
 </footer>
