@@ -4,12 +4,21 @@ require 'page.php/config.php';
 require __DIR__ . "/page.php/header.php"; 
 $creneaux = creneaux_html_2(HORAIRES);
 ?>
-<div class="row" style="height: 500px;">
-    <div class="col-md-6" style="position: absolute; left: 0px">
-        <h1>Horaires d'ouvertures</h1>
-        <ul style="list-style: none;">
-            <?php echo $creneaux?>
-        </ul>
+<div class="row" style="height: 500px; display: flex;">
+        <!-- rendez-vous JS -->
+    <div style="position: absolute; left: 0; height: 300px; margin: 200px 0 0 50px;">
+        <h5 style="margin-bottom: 20px; white-space: nowrap;">Prendre un rendez-vous avec javascript:</h5>
+        <label for="selectJourJS">Jour du rendez-vous:</label>
+        <select  name="selectJourJS" id="selectJourJS" onchange="creneauxSelector(document.getElementById('selectJourJS'))">
+            <option value="Jour"> Jour </option>
+        </select>
+        <div class="choiceCreneauJS" style="visibility: hidden; white-space: nowrap;">
+            <label for="selectCreneauJS">Creneau du rendez-vous:</label>
+            <select  name="selectCreneauJS" id="selectCreneauJS" onchange="valideCreneaux(document.getElementById('selectCreneauJS'))">
+                <option value="Creneau"> Creneau </option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary valideCreneaux" style="visibility: hidden;">Valider rendez-vous</button>
     </div>
     <div class="col-md-6" style="display: flex; flex-direction: column; justify-content: center; align-items: center; margin: 0 auto;">
         <img src="page.php/img/logo-jampi.png" alt="Jampi, artisan glacier" style="height: 144px; width: 180px;">

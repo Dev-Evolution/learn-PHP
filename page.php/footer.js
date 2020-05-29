@@ -58,6 +58,10 @@ function creneauxSelector(day){
         //add new creneaux
         for(i = 0; i < jours.length; i++){
             if(day.value == jours[i]){
+                let creneauxOuverture = creneaux[i];
+                for(k = 0; k < creneauxOuverture.length; k++){
+                    console.log(creneauxOuverture[k]);
+                }
                 var selector = document.querySelector('#selectCreneauJS');
                 var newOptionCreneau = document.createElement("option");
                 newOptionCreneau.text = creneaux[i];
@@ -69,18 +73,23 @@ function creneauxSelector(day){
     }
 }
 
+function valideCreneaux(selectedCreneau){
+    if(selectedCreneau.value != 'Creneau'){
+        document.querySelector('.valideCreneaux').style.visibility = 'visible';
+    }
+}
 
 function selectedDayPHP(day){
     if(day.value == 'Jour'){
-        document.querySelector('.choiceCreneau').style.visibility = 'hidden';
+        document.querySelector('.entrerHeure').style.visibility = 'hidden';
     }
     else{
-        document.querySelector('.choiceCreneau').style.visibility = 'visible';
+        document.querySelector('.entrerHeure').style.visibility = 'visible';
     }
 }
 
 
-
+//button active = background color: #007bff
 
 
 
