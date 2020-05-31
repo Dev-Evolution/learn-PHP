@@ -26,7 +26,6 @@ function navlink ($classLink = " "){
          menu_item("Home", "index.php", $classLink) .
          menu_item("Contact", "contact.php", $classLink) .
          menu_item("Jeux", "jeux.php", $classLink) .
-         menu_item("Glace", "glace.php", $classLink) .
          menu_item("test prix Glace", "testGlacePrix.php", $classLink).
          menu_item("valide prix Glace", "validePrixGlace.php", $classLink);
 }

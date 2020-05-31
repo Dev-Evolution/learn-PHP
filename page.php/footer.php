@@ -9,7 +9,7 @@ $colorJour = $ouvert ? '#3CD576' : 'red';
 ?>
 </main><!-- /.container -->
 <footer>
-    <div class = "row" style="display: flex; justify-content:center; margin-top: 50px;">
+    <div class = "row" style="display: flex; justify-content:center; margin-top: 100px;">
                     <!-- rendez-vous PHP -->
         <form action="" method="" class = "col-md-4" style="text-align: center;">
             <h5 style="margin-bottom: 20px;">Prendre un rendez-vous avec PHP:</h5>

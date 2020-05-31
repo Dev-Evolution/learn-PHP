@@ -55,18 +55,31 @@ function creneauxSelector(day){
                 removeOptionCreneaux[i].parentNode.removeChild(removeOptionCreneaux[i]);
             }
         }
-        //add new creneaux
+        //ajout nouveaux creneaux
         for(i = 0; i < jours.length; i++){
             if(day.value == jours[i]){
+                    //creation des creneaux de rendez-vous
                 let creneauxOuverture = creneaux[i];
                 for(k = 0; k < creneauxOuverture.length; k++){
-                    console.log(creneauxOuverture[k]);
+                    (function(heureCreneau){
+                        let heureFermeture = parseInt(creneauxOuverture[k][1].substring(0, 1), 10);
+                        if(parseInt(creneauxOuverture[k][0].substring(0, 1), 10) === heureFermeture){
+                            return false;
+                        }else{
+                            ajoutCreneau(heureCreneau);
+                        }
+                        heureCreneau += 1;
+                        console.log(creneauxOuverture[k]);
+                    })(parseInt(creneauxOuverture[k][0].substring(0, 1), 10))
                 }
-                var selector = document.querySelector('#selectCreneauJS');
-                var newOptionCreneau = document.createElement("option");
-                newOptionCreneau.text = creneaux[i];
-                newOptionCreneau.setAttribute("value", creneaux[i]);
-                selector.appendChild(newOptionCreneau);
+                    //ajout des creneaux de rendez-vous
+                function ajoutCreneau (heureCreneau){
+                    var selector = document.querySelector('#selectCreneauJS');
+                    var newOptionCreneau = document.createElement("option");
+                    newOptionCreneau.text = creneaux[i];
+                    newOptionCreneau.setAttribute("value", creneaux[i]);
+                    selector.appendChild(newOptionCreneau);
+                }
             }
         }
         document.querySelector('.choiceCreneauJS').style.visibility = 'visible';
