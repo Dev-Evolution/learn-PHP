@@ -11,10 +11,10 @@ $colorJour = $ouvert ? '#3CD576' : 'red';
 <footer>
     <div class = "row" style="display: flex; justify-content:center; margin-top: 100px;">
                     <!-- rendez-vous PHP -->
-        <form action="" method="" class = "col-md-4" style="text-align: center;">
-            <h5 style="margin-bottom: 20px;">Prendre un rendez-vous avec PHP:</h5>
+        <form action="page.php/footer.php" method="GET" class = "col-md-4" style="text-align: center;">
+            <h5 style="margin-bottom: 20px;">Vérifer heure d'ouverture:</h5>
             <label for="selectJour">Jour du rendez-vous:</label>
-            <select name="selectJour" id="selectJour" onchange="selectedDayPHP(document.getElementById('selectJour'))">
+            <select name="selectJour" id="selectJour" onchange="selectedDay(document.getElementById('selectJour'))">
                 <option value="Jour"> Jour </option>
                 <?php foreach(JOURS as $k => $jour):?>
                     <?php if(creneaux_html(CRENEAUX[$k]) != 'fermé'):?>
@@ -24,10 +24,10 @@ $colorJour = $ouvert ? '#3CD576' : 'red';
             </select>
             <br>
             <div class="entrerHeure" style="visibility: hidden; white-space: nowrap;">
-                <label for="selectCreneau">Entrez un horaire:</label>
-                <input id="heureEntrer" type="number" name="heure" value="<? $heure?>">
+                <label for="selectCreneau">Entrez une heure:</label>
+                <input  id="heureEntrer" type="number" name="heureVerifier" value="<? $heure?>" min="0" max="24" style=" width: 330px" onkeyup="valideHeure(this.value)">
             </div>
-            <button class="btn btn-primary" type="submit" style="pointer-events: none; opacity: 0.65; background-color: grey; border: none;">Vérifier l'heure</button>
+            <button class="btn btn-primary verifierHeure" type="submit" style="pointer-events: none; opacity: 0.65; background-color: grey; border-color: grey;">Vérifier l'heure</button>
         </form>
 
                     <!-- Horaires d'ouverture -->
