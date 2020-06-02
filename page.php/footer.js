@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
 //add creneaux selector
 function creneauxSelector(day){
-    if(day.value == 'Jour'){
+    if(day === 'Jour'){
         document.querySelector('.choiceCreneauJS').style.visibility = 'hidden';
         document.querySelector('.valideCreneaux').style.visibility = 'hidden';
     }
@@ -58,7 +58,7 @@ function creneauxSelector(day){
         }
         //ajout nouveaux creneaux
         for(i = 0; i < jours.length; i++){
-            if(day.value == jours[i]){
+            if(day == jours[i]){
                     //creation des creneaux de rendez-vous
                 let creneauxOuverture = creneaux[i];
                 for(k = 0; k < creneauxOuverture.length; k++){
@@ -84,11 +84,12 @@ function creneauxSelector(day){
             }
         }
         document.querySelector('.choiceCreneauJS').style.visibility = 'visible';
+        document.querySelector('.valideCreneaux').style.visibility = 'hidden';
     }
 }
 
 function valideCreneaux(selectedCreneau){
-    if(selectedCreneau.value != 'Creneau'){
+    if(selectedCreneau != 'Creneau'){
         document.querySelector('.valideCreneaux').style.visibility = 'visible';
     }
     else{
@@ -96,15 +97,43 @@ function valideCreneaux(selectedCreneau){
     }
 }
 
-function selectedDayPHP(day){
-    if(day.value == 'Jour'){
+
+function selectedDay(day){
+    if(day.value === 'Jour'){
         document.querySelector('.entrerHeure').style.visibility = 'hidden';
     }
     else{
+        var heureEntrer = document.querySelector('#heureEntrer');
+        var placehoderCreneau = [];
+        for(indexCreneau in creneaux){
+            if(day.value === indexCreneau){
+                creneaux[indexCreneau].forEach(heure => {
+                    placehoderCreneau.push(heure[0] + " et " + heure[1]);
+                });
+                placehoderCreneau = "entre " + placehoderCreneau.join(' ou ');
+            }
+        }
+        heureEntrer.setAttribute("placeholder", placehoderCreneau);
         document.querySelector('.entrerHeure').style.visibility = 'visible';
     }
-}
+};
 
+function valideHeure(heureEntrer){
+    console.log(heureEntrer);
+    var verifierHeure = document.querySelector(".verifierHeure");
+    if(heureEntrer != ""){
+        verifierHeure.style.pointerEvents = 'auto';
+        verifierHeure.style.opacity = "1";
+        verifierHeure.style.backgroundColor = "#007bff";
+        verifierHeure.style.borderColor = "#007bff";
+    }
+    else{
+        verifierHeure.style.pointerEvents = 'none';
+        verifierHeure.style.opacity = "0.65";
+        verifierHeure.style.backgroundColor = "grey";
+        verifierHeure.style.borderColor = "grey";
+    }
+};
 
 //button active = background color: #007bff
 

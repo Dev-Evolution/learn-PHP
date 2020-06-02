@@ -7,14 +7,14 @@ $creneaux = creneaux_html_2(HORAIRES);
 <div class="row" style="height: 500px; display: flex;">
         <!-- rendez-vous JS -->
     <div style="position: absolute; left: 0; height: 300px; margin: 200px 0 0 50px;">
-        <h5 style="margin-bottom: 20px; white-space: nowrap;">Prendre un rendez-vous avec javascript:</h5>
+        <h5 style="margin-bottom: 20px; white-space: nowrap;">Prendre un rendez-vous:</h5>
         <label for="selectJourJS">Jour du rendez-vous:</label>
-        <select  name="selectJourJS" id="selectJourJS" onchange="creneauxSelector(document.getElementById('selectJourJS'))">
+        <select  name="selectJourJS" id="selectJourJS" onchange="creneauxSelector(this.value)">
             <option value="Jour"> Jour </option>
         </select>
         <div class="choiceCreneauJS" style="visibility: hidden; white-space: nowrap;">
             <label for="selectCreneauJS">Creneau du rendez-vous:</label>
-            <select  name="selectCreneauJS" id="selectCreneauJS" onchange="valideCreneaux(document.getElementById('selectCreneauJS'))">
+            <select  name="selectCreneauJS" id="selectCreneauJS" onchange="valideCreneaux(this.value)">
                 <option value="Creneau"> Creneau </option>
             </select>
         </div>
