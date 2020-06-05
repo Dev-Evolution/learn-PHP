@@ -20,6 +20,7 @@ $creneaux = creneaux_html_2(HORAIRES);
         </div>
         <button type="submit" class="btn btn-primary valideCreneaux" style="visibility: hidden;">Valider rendez-vous</button>
     </div>
+    <div id="GoogleMap" style="position: absolute; height: 300px; width: 300px;">API KEY: AIzaSyD_2wc0twhFXOH0oBMdLwReOldgAfPiCkU</div>
     <div class="col-md-6" style="display: flex; flex-direction: column; justify-content: center; align-items: center; margin: 0 auto;">
         <img src="page.php/img/logo-jampi.png" alt="Jampi, artisan glacier" style="height: 144px; width: 180px;">
         <h1>Nous contacter</h1>
