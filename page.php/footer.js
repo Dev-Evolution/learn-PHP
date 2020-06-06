@@ -135,7 +135,6 @@ function valideHeure(heureEntrer){
     }
 };
 
-//button active = background color: #007bff
 
 
 

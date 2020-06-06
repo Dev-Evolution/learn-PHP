@@ -4,7 +4,9 @@ require 'page.php/config.php';
 require __DIR__ . "/page.php/header.php"; 
 $creneaux = creneaux_html_2(HORAIRES);
 ?>
-<div class="row" style="height: 500px; display: flex;">
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD_2wc0twhFXOH0oBMdLwReOldgAfPiCkU&callback=initMap"async defer></script>
+
+<div class="row" style="height: 500px; display: flex;" onload="initMap()">
         <!-- rendez-vous JS -->
     <div style="position: absolute; left: 0; height: 300px; margin: 200px 0 0 50px;">
         <h5 style="margin-bottom: 20px; white-space: nowrap;">Prendre un rendez-vous:</h5>
@@ -20,7 +22,9 @@ $creneaux = creneaux_html_2(HORAIRES);
         </div>
         <button type="submit" class="btn btn-primary valideCreneaux" style="visibility: hidden;">Valider rendez-vous</button>
     </div>
-    <div id="GoogleMap" style="position: absolute; height: 300px; width: 300px;">API KEY: AIzaSyD_2wc0twhFXOH0oBMdLwReOldgAfPiCkU</div>
+
+    <div type="text/javascript" id="map" style="position: absolute; height: 300px; width: 300px;">API KEY: </div>
+    
     <div class="col-md-6" style="display: flex; flex-direction: column; justify-content: center; align-items: center; margin: 0 auto;">
         <img src="page.php/img/logo-jampi.png" alt="Jampi, artisan glacier" style="height: 144px; width: 180px;">
         <h1>Nous contacter</h1>
@@ -39,8 +43,7 @@ $creneaux = creneaux_html_2(HORAIRES);
         </ul>
     </div>
 </div>
+<script type="text/javascript" src="page.php/googleMap.js"></script>
 
-
-</html>
 <?php require  __DIR__ . "/page.php/footer.php"; ?>
  

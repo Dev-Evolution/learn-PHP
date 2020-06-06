@@ -33,9 +33,9 @@ if(isset($_GET["chiffre"])){
 <?php endif?>
 
 <form action="/jeux.php" method = "GET" style="display: flex; height: 500px; align-items: center;">
-<label for="chiffre">Veuillez entrer un nombre</label>
-<input type="number" name="chiffre" style="margin-left: 10px;" placeholder="nombre entre 1 et 10" value = "<?php echo $value?>" >
-<button type="submit" style="margin-left: 10px;">Valider</button>
+    <label for="chiffre">Veuillez entrer un nombre</label>
+    <input type="number" name="chiffre" style="margin-left: 10px;" placeholder="nombre entre 1 et 10" value = "<?php echo $value?>" >
+    <button type="submit" style="margin-left: 10px;">Valider</button>
 </form> 
 
 <?php require  __DIR__ . "/page.php/footer.php"; ?>
