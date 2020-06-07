@@ -29,17 +29,20 @@ const creneaux = [
 
 
 //add day in "selectJourJS" selector
-document.addEventListener("DOMContentLoaded", function(){
-    for(i = 0; i < jours.length; i++){
-        if(creneaux[i][0] != null){
-            let selector = document.querySelector('#selectJourJS');
-            let newOptionJour = document.createElement("option");
-            newOptionJour.text = jours[i];
-            newOptionJour.setAttribute("value", jours[i]);
-            selector.appendChild(newOptionJour);
+var selector = document.querySelector('#selectJourJS');
+if(selector != null){
+    document.addEventListener("DOMContentLoaded", function(){
+        for(i = 0; i < jours.length; i++){
+            if(creneaux[i][0] != null){
+                let newOptionJour = document.createElement("option");
+                newOptionJour.text = jours[i];
+                newOptionJour.setAttribute("value", jours[i]);
+                selector.appendChild(newOptionJour);
+            }
         }
-    }
-});
+    });
+}
+
 
 
 //add creneaux selector
@@ -135,7 +138,6 @@ function valideHeure(heureEntrer){
     }
 };
 
-//button active = background color: #007bff
 
 
 
